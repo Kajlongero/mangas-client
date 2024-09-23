@@ -1,0 +1,27 @@
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  max-height: 25rem;
+  margin-top: 2.5rem;
+  gap: 0.5rem;
+
+  & .hero__smallContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 37rem;
+    & .hero__smallContainer {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

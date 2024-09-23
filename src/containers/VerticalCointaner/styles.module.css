@@ -1,0 +1,83 @@
+.verticalContainer {
+  width: 100%;
+
+  & .verticalContainer__titleContainer {
+    & h3 {
+      letter-spacing: 0.1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .verticalContainer__cardsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+    border-radius: 0.25rem;
+    gap: 4rem;
+  }
+
+  & .verticalContainer__showMoreButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 80rem;
+    padding: 1rem 1.5rem;
+    background-color: #292929;
+    border-radius: 0.75rem;
+    text-align: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+
+    & .verticalContainer__showMoreButton__icon:hover {
+      color: #ddd;
+      transition: color 0.35s;
+    }
+
+    & .verticalContainer__showMoreButton__icon:not(:hover) {
+      transition: color 0.15s;
+    }
+
+    & .verticalContainer__showMoreButton__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+@media (max-width: 52.25rem) {
+  .verticalContainer {
+    max-width: 31.5rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 52.25rem) {
+  .verticalContainer {
+    max-width: 47.6rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 68.5rem) {
+  .verticalContainer {
+    max-width: 63.75rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 80rem) {
+  .verticalContainer {
+    max-width: 80rem;
+    margin: 0 auto;
+
+    & .verticalContainer__cardsContainer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+    }
+  }
+}

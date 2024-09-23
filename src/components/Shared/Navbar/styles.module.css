@@ -1,0 +1,25 @@
+.navbarRoute {
+  padding: 0.5rem 1rem;
+}
+
+.standardPath {
+  color: #ffffff;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.actualPath {
+  color: #000000;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  background-color: #ffff00;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.fixedWidth {
+  width: 100%;
+  min-width: 5.5rem;
+  max-width: 7.5rem;
+  text-align: center;
+}

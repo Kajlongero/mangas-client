@@ -1,0 +1,112 @@
+.flexWrapContainer {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+
+  & .flexWrapContainer__titleContainer {
+    margin: 5rem 0 1rem 0;
+    & h3 {
+      letter-spacing: 0.1rem;
+      font-size: 1.5rem;
+    }
+    & p {
+      font-weight: 300;
+      color: #dddddd;
+      letter-spacing: 0.05rem;
+    }
+  }
+
+  & .flexWrapContainer__cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem;
+  }
+
+  & .flexWrapContainer__showMoreButton:hover {
+    color: #ddd;
+    background-color: #444;
+    transition: background-color 0.35s, color 0.15s;
+  }
+
+  & .flexWrapContainer__showMoreButton:not(:hover) {
+    transition: background-color 0.35s, color 0.15s;
+  }
+
+  & .flexWrapContainer__showMoreButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 80rem;
+    padding: 1rem 1.5rem;
+    background-color: #292929;
+    border-radius: 0.75rem;
+    text-align: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+
+    & .flexWrapContainer__showMoreButton__icon:hover {
+      color: #ddd;
+      transition: color 0.35s;
+    }
+
+    & .flexWrapContainer__showMoreButton__icon:not(:hover) {
+      transition: color 0.15s;
+    }
+
+    & .flexWrapContainer__showMoreButton__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+@media (min-width: 36.25rem) {
+  .flexWrapContainer {
+    max-width: 31.5rem;
+    margin: 0 auto;
+
+    & .flexWrapContainer__cardsContainer {
+      height: 148.5rem;
+      max-height: 148.5rem;
+      overflow: hidden;
+    }
+  }
+}
+
+@media (min-width: 52.25rem) {
+  .flexWrapContainer {
+    max-width: 47.6rem;
+    margin: 0 auto;
+
+    & .flexWrapContainer__cardsContainer {
+      height: 123.6rem;
+      max-height: 123.6rem;
+      overflow: hidden;
+    }
+  }
+}
+
+@media (min-width: 68.5rem) {
+  .flexWrapContainer {
+    max-width: 63.75rem;
+    margin: 0 auto;
+
+    & .flexWrapContainer__cardsContainer {
+      height: 73.75rem;
+      max-height: 73.75rem;
+      overflow: hidden;
+    }
+  }
+}
+
+@media (min-width: 80rem) {
+  .flexWrapContainer {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+}

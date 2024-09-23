@@ -1,0 +1,78 @@
+.horizontalContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  & .horizontalContainer__titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem 0 1rem 0;
+    & h3 {
+      letter-spacing: 0.1rem;
+      font-size: 1.5rem;
+    }
+    & p {
+      font-weight: 300;
+      color: #dddddd;
+      letter-spacing: 0.05rem;
+    }
+  }
+  & .horizontalContainer__cardsContainer {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-color: #292929;
+    scrollbar-width: 0.75rem;
+    scrollbar-face-color: #7a7a7a;
+    scroll-snap-type: mandatory;
+    margin-bottom: 4rem;
+  }
+
+  .horizontalContainer__cardsContainer::-webkit-scrollbar {
+    height: 0.75rem;
+  }
+
+  .horizontalContainer__cardsContainer::-webkit-scrollbar-track {
+    background-color: #292929;
+    border-radius: 0.5rem;
+  }
+
+  .horizontalContainer__cardsContainer::-webkit-scrollbar-thumb {
+    background-color: #3a3a3a;
+    border-radius: 0.5rem;
+  }
+}
+
+@media (min-width: 36.25rem) {
+  .horizontalContainer {
+    max-width: 31.5rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 52.25rem) {
+  .horizontalContainer {
+    max-width: 47.5rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 68.5rem) {
+  .horizontalContainer {
+    max-width: 63.75rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 80rem) {
+  .horizontalContainer {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+}

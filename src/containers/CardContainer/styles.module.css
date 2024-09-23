@@ -1,0 +1,15 @@
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  max-height: 25rem;
+  margin-top: 2.5rem;
+  gap: 0.5rem;
+}
+
+@media (max-width: 40rem) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+}
