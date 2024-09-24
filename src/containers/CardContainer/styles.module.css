@@ -7,9 +7,30 @@
   gap: 0.5rem;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 52.25rem) {
   .hero {
-    display: flex;
-    flex-direction: column;
+    max-width: 31.5rem;
+    margin: 2.5rem auto 0 auto;
+  }
+}
+
+@media (min-width: 52.25rem) {
+  .hero {
+    max-width: 47.6rem;
+    margin: 2.5rem auto 0 auto;
+  }
+}
+
+@media (min-width: 68.5rem) {
+  .hero {
+    max-width: 63.75rem;
+    margin: 2.5rem auto 0 auto;
+  }
+}
+
+@media (min-width: 80rem) {
+  .hero {
+    max-width: 80rem;
+    margin: 2.5rem auto 0 auto;
   }
 }

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Oswald } from "next/font/google";
 import { MangaPreviewCard } from "@/components/Cards/MangaPreviewCard";
-import s from "./styles.module.css";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import s from "./styles.module.css";
 
 const oswald = Oswald({
   subsets: ["latin"],
