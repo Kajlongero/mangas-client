@@ -7,21 +7,21 @@ import Link from "next/link";
 export const ProfileInfoComponent = () => {
   return (
     <>
-      <StandardContainer>
+      <article className="background-21-container">
         <p className="pb-2 text-[#ffffff]">Email</p>
         <div className="text-[#aaa] flex gap-2 items-center">
           <UserCircleIcon className="w-8 h-8" />
           <p>kajlo@gmail.com</p>
         </div>
-      </StandardContainer>
-      <StandardContainer>
+      </article>
+      <article className="background-21-container">
         <p className="pb-2 text-[#ffffff]">Username</p>
         <div className="text-[#aaa] flex gap-2 items-center">
           <UserCircleIcon className="w-8 h-8" />
           <p>Kajlongero Takanashi Developer</p>
         </div>
-      </StandardContainer>
-      <StandardContainer>
+      </article>
+      <article className="background-21-container">
         <p className="pb-2 text-[#ffffff]">Password</p>
         <div className="flex gap-2 items-center">
           <Link
@@ -31,7 +31,7 @@ export const ProfileInfoComponent = () => {
             Change password
           </Link>
         </div>
-      </StandardContainer>
+      </article>
     </>
   );
 };

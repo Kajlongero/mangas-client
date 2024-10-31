@@ -1,15 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { UserCircleIcon } from "@heroicons/react/24/outline";
 
 import { OptionItem } from "./OptionItem";
-import { StandardContainer } from "@/containers/StandardContainer";
 import { ProfileInfoComponent } from "./Info";
 import { type InfoOptions, infoOptions } from "./utils/InfoOptions";
 import { RecentComicsComponent } from "./RecentComics";
 import { FavoritesComponent } from "./Favorites";
 import { RecentComments } from "./Comments";
+import { Preferences } from "./Preferences";
 
 export const ProfileInfo = () => {
   const [selectedOpt, setSelectedOpt] = useState(infoOptions[0]);
@@ -40,7 +39,8 @@ export const ProfileInfo = () => {
             comics={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
           />
         )}
-        {selectedOpt.value === "Recent Comments" && <RecentComments />}
+        {selectedOpt.value === "Comments" && <RecentComments />}
+        {selectedOpt.value === "Preferences" && <Preferences />}
       </div>
     </section>
   );

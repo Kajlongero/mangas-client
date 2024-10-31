@@ -3,7 +3,7 @@ import Image from "next/image";
 export const BackgroundAndPfp = () => {
   return (
     <>
-      <section className="w-full h-full max-h-[50dvh] relative">
+      <section className="w-full h-full max-h-[50vh] relative">
         <Image
           src={"/IsekaiMaouToShoukanSFW.jpg"}
           alt="Profile Background image"
@@ -26,7 +26,7 @@ export const BackgroundAndPfp = () => {
             />
           </figure>
           <article className="text-white items-center pt-4 lg:flex-1">
-            <h3 className="max-[28rem]:text-lg text-4xl w-full truncate max-lg:text-center">
+            <h3 className="max-[28rem]:text-lg text-4xl w-full truncate mobile:text-center max-lg:text-center">
               Kajlongero Takanashi Developer
             </h3>
           </article>

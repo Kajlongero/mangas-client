@@ -16,7 +16,7 @@ const config: Config = {
         "2": "2 2 0%",
       },
       screens: {
-        mobile: "375px",
+        mobile: "425px",
       },
       gridTemplateColumns: {
         "auto-fill-100": "repeat(auto-fill, minmax(9rem, 1fr))",

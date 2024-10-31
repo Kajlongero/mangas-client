@@ -18,7 +18,7 @@ export const infoOptions: InfoOptions[] = [
   },
   {
     key: 4,
-    value: "Recent Comments",
+    value: "Comments",
   },
   {
     key: 5,

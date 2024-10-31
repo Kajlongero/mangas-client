@@ -39,3 +39,7 @@ body {
   text-overflow: ellipsis;
   font-weight: 700;
 }
+
+.background-21-container {
+  @apply w-full py-4 px-4 bg-[#212121] rounded-lg;
+}
