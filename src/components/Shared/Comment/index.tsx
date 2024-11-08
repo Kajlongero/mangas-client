@@ -1,9 +1,6 @@
 import Image from "next/image";
 import { Button, Typography } from "@mui/material";
 
-import ReplyIcon from "@mui/icons-material/Reply";
-import DeleteIcon from "@mui/icons-material/Delete";
-
 import ThumbUpAlt from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAlt from "@mui/icons-material/ThumbDownAlt";
 
