@@ -11,6 +11,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "custom-gray": "#999797",
+        "yellow-w-gray": "#fcd34d",
       },
       flex: {
         "2": "2 2 0%",

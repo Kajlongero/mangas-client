@@ -1,4 +1,4 @@
-import { CustomSVGProps } from "@/types/SVGProps";
+import { CustomSVGProps } from "@/interfaces/svgprops.model";
 
 export const CollectionSVG = ({ color }: CustomSVGProps) => {
   return (

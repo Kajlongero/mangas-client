@@ -6,6 +6,8 @@ export const isOnPathname = (actual: string, expected: string): boolean => {
     j = 1;
 
   while (splitActual[i] !== undefined && splitExpected[j] !== undefined) {
+    if (!splitActual[i] && splitActual[i] !== "") break;
+
     if (splitActual[i] !== splitExpected[j]) return false;
 
     i++;

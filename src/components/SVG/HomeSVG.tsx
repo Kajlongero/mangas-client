@@ -1,4 +1,4 @@
-import { CustomSVGProps } from "@/types/SVGProps";
+import { CustomSVGProps } from "@/interfaces/svgprops.model";
 
 export const HomeSVG = ({ color }: CustomSVGProps) => {
   return (
