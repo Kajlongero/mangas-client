@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Comic_Neue } from "next/font/google";
-import { SignupForm } from "@/components/Forms/Signup";
+import { SignupForm } from "@/core/components/Forms/Signup";
 
 const comic = Comic_Neue({
   subsets: ["latin"],
@@ -13,7 +13,7 @@ export default function SignupPage() {
       className={`background-21-container mobile:px-8 max-w-[28rem] ${comic.className}`}
     >
       <div className="flex flex-col items-center justify-center gap-8">
-        <figure className="relative w-32 h-32 object-cover">
+        {/* <figure className="relative w-24 h-24 object-cover">
           <Image
             src="/logos/logo.png"
             width={320}
@@ -22,7 +22,7 @@ export default function SignupPage() {
             alt="Kajlomangas logo"
             className="object-cover w-full h-full bg-transparent rounded-lg"
           ></Image>
-        </figure>
+        </figure> */}
         <h3 className="text-4xl">REGISTER</h3>
       </div>
       <SignupForm />

@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { HistoryComicsByDateComponent } from "@/components/Profile/RecentComics/HistoryComics";
+import { HistoryComicsByDateComponent } from "@/core/user/components/Profile/RecentComics/HistoryComics";
 
 export default async function RecentComicsPage() {
   return (

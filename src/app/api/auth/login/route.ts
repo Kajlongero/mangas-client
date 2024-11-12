@@ -1,60 +1,59 @@
-import axios from "axios";
 import { cookies } from "next/headers";
-import { type ApiResponse } from "@/interfaces/api.model";
-import { type JwtTokens } from "@/interfaces/jwt.model";
 
-// login
+import { fetchData } from "@/common/lib/axios.functions";
+import { ValidateLogin } from "@/security/lib/validate.auth.info";
+import { CustomResponse } from "@/common/responses/custom.response";
+import {
+  AccessTokenValidTime,
+  RefreshTokenValidTime,
+} from "@/security/lib/auth.tokens.times";
+
+import {
+  LoginCredentials,
+  LoginCredentialsErrors,
+} from "@/security/interfaces/auth.model";
+import { JwtTokens } from "@/security/interfaces/auth.model";
+import {
+  RequestConfig,
+  StandardApiResponse,
+} from "@/common/interfaces/api.model";
+
 export async function POST(request: Request) {
-  try {
-    const body = request.body;
+  const body: LoginCredentials = await request.json();
 
-    const req = await axios.post(
-      "http://localhost:3001/api/v1/auth/login",
-      body,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const res: ApiResponse<JwtTokens> = req.data;
+  const valid = ValidateLogin(body);
+  if (!valid) {
+    const format: StandardApiResponse<LoginCredentialsErrors> = {
+      error: true,
+      data: valid,
+      statusCode: 400,
+      message: "Bad Request",
+    };
 
-    const cookiesStore = await cookies();
-
-    cookiesStore.set({
-      name: "access-token",
-      value: res.data.AccessToken,
-      httpOnly: true,
-      expires: Date.now() * 1000 * 60 * 60 * 24 * 30,
-      maxAge: Date.now() * 1000 * 60 * 60 * 24 * 30,
-      sameSite: "lax",
-      path: "/",
-      domain: "http://localhost:3001",
-    });
-
-    cookiesStore.set({
-      name: "refresh-token",
-      value: res.data.RefreshToken,
-      httpOnly: true,
-      expires: Date.now() * 1000 * 60 * 60 * 24 * 180,
-      maxAge: Date.now() * 1000 * 60 * 60 * 24 * 180,
-      sameSite: "lax",
-      path: "/",
-      domain: "http://localhost:3001",
-    });
-
-    return new Response(JSON.stringify(res), {
-      status: res.statusCode,
-      statusText: res.message,
-    });
-  } catch (error: unknown) {
-    if (axios.isAxiosError(error)) {
-      const err: Omit<ApiResponse<null>, "data"> = error.response?.data;
-
-      return new Response(JSON.stringify(err), {
-        status: err.statusCode,
-        statusText: err.message,
-      });
-    }
+    return CustomResponse(format, 400, "Bad Request");
   }
+
+  const config: RequestConfig<LoginCredentials> = {
+    config: {},
+    method: "post",
+    route: "/api/v1/auth/login",
+    body: body,
+  };
+
+  const res = await fetchData<
+    LoginCredentials,
+    StandardApiResponse<null | JwtTokens>
+  >(config);
+
+  if (res.error) {
+    const obj = { ...res, data: null };
+    return CustomResponse(obj, res.statusCode, res.message ?? "");
+  }
+
+  const store = await cookies();
+
+  AccessTokenValidTime(store, res.data?.AccessToken as string);
+  RefreshTokenValidTime(store, res.data?.RefreshToken as string);
+
+  return CustomResponse({ message: "Logged in successfully" }, 200, "Success");
 }

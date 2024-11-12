@@ -1,6 +1,6 @@
 "use client";
 
-import { ComicItem } from "@/components/Profile/RecentComics/ComicItem";
+import { ComicItem } from "@/core/user/components/Profile/RecentComics/ComicItem";
 import { Typography } from "@mui/material";
 
 export default function FavoritesPage() {

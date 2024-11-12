@@ -1,4 +1,4 @@
-import { Preferences } from "@/components/Profile/Preferences";
+import { Preferences } from "@/core/user/components/Profile/Preferences";
 import { Typography } from "@mui/material";
 
 export default function PreferencesPage() {

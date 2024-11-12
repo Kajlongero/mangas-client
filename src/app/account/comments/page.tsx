@@ -1,4 +1,4 @@
-import { RecentComments } from "@/components/Profile/RecentComments";
+import { RecentComments } from "@/core/user/components/Profile/RecentComments";
 import { Typography } from "@mui/material";
 
 export default function CommentsPage() {
