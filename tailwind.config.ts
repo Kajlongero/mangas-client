@@ -25,6 +25,9 @@ const config: Config = {
         "auto-fill-100": "repeat(auto-fill, minmax(9rem, 1fr))",
         "auto-fit-100": "repeat(auto-fit, minmax(9rem, 1fr))",
       },
+      aspectRatio: {
+        "16/12": "16 / 12",
+      },
     },
   },
   plugins: [],
