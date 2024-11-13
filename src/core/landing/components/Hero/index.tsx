@@ -12,7 +12,7 @@ export const Hero = () => {
           <h2 className="text-right">Recomendado por el staff</h2>
         </div>
       </div>
-      <div className="flex gap-4 w-full mt-6 max-md:overflow-x-scroll max-md:aspect-video max-md:object-cover">
+      <div className="pb-4 grid md:grid-cols-2 md:overflow-x-scroll gap-4 w-full mt-6 max-md:flex max-md:overflow-x-scroll max-md:aspect-video max-md:object-cover">
         <LargeCard />
         <LargeCard />
       </div>
