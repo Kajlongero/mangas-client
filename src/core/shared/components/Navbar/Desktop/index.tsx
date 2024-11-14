@@ -16,7 +16,9 @@ export const DesktopNavbar = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
   const isOnDesktop = (route: string) =>
-    isOnPathname(pathname, route) ? "text-yellow-w-gray bg-[#fcd34d40] " : "";
+    isOnPathname(pathname, route)
+      ? "text-yellow-w-gray bg-[#fcd34d40] "
+      : "hover:bg-[#2a2a2a]";
 
   const svgColor = (route: string, color: string = "#000") =>
     isOnPathname(pathname, route) ? color : "#fff";
@@ -26,7 +28,7 @@ export const DesktopNavbar = ({ children }: { children: React.ReactNode }) => {
       <section className="max-md:hidden flex gap-4 items-center">
         {children}
         <ul className="flex gap-4">
-          <li className={`px-4 py-1 rounded-lg ${isOnDesktop("/")}`}>
+          <li className={`px-4 py-1 rounded-lg transition ${isOnDesktop("/")}`}>
             <Link href="/" className="flex gap-2 items-center w-full h-full">
               <figure className={`mx-auto w-4 h-4`}>
                 <HomeSVG color={svgColor("/", "#fcd34d")} />
@@ -34,7 +36,11 @@ export const DesktopNavbar = ({ children }: { children: React.ReactNode }) => {
               <p>Home</p>
             </Link>
           </li>
-          <li className={`px-4 py-1 rounded-lg ${isOnDesktop("/collections")}`}>
+          <li
+            className={`px-4 py-1 rounded-lg transition ${isOnDesktop(
+              "/collections"
+            )}`}
+          >
             <Link
               href="/collections"
               className="flex gap-2 items-center w-full h-full"

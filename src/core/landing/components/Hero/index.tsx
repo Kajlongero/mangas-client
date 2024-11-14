@@ -1,7 +1,7 @@
 import Link from "next/link";
 import RecommendIcon from "@mui/icons-material/Recommend";
 import LaunchIcon from "@mui/icons-material/Launch";
-import { LargeCard } from "@/core/shared/components/Card/Large";
+import { LargeCard } from "@/core/shared/components/ComicCard/Large";
 
 export const Hero = () => {
   return (
@@ -12,7 +12,7 @@ export const Hero = () => {
           <h2 className="text-right">Recomendado por el staff</h2>
         </div>
       </div>
-      <div className="pb-4 grid md:grid-cols-2 md:overflow-x-scroll gap-4 w-full mt-6 max-md:flex max-md:overflow-x-scroll max-md:aspect-video max-md:object-cover">
+      <div className="custom-horizontal-scrollbar pb-4 grid md:grid-cols-2 md:overflow-x-scroll gap-4 w-full mt-6 max-md:flex max-md:overflow-x-scroll max-md:aspect-video max-md:object-cover">
         <LargeCard />
         <LargeCard />
       </div>
