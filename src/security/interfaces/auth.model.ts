@@ -35,9 +35,11 @@ export type RegisterCredentialsErrors = {
   };
 };
 
-export interface JwtTokens {
-  AccessToken: string;
-  RefreshToken: string;
+export interface AuthResponse {
+  accessToken: string;
+  refreshToken: string;
+  sessionId: string;
+  privateKey: string;
 }
 
 export type AuthRoles =

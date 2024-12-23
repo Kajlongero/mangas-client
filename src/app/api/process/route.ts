@@ -1,12 +1,13 @@
 import { cookies } from "next/headers";
 
-import { RequestConfig } from "@/common/interfaces/api.model";
+import { fetchData } from "@/common/lib/axios.functions";
+import { DynamicResponse } from "@/api/responses/dynamic.response";
 import {
   AddElementsIntoObject,
   FindPossibleInAnidatedAndExec,
 } from "@/common/utils/objects.functions";
-import { fetchData } from "@/common/lib/axios.functions";
-import { DynamicResponse } from "@/common/responses/dynamic.response";
+
+import { RequestConfig } from "@/api/interfaces/api.model";
 
 export async function POST(req: Request) {
   const _body: RequestConfig<object> = await req.json();

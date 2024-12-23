@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export const StandardCard = () => {
   return (
-    <article className="relative">
-      <Link href="/comic/read/comic-comienza-con-una-montania">
-        <figure className="w-52 h-80">
+    <article className="relative min-w-52 min-h-60">
+      <Link href="/library/comic/comic-comienza-con-una-montania">
+        <figure className="w-full h-full">
           <Image
             src="/hoshino.png"
             alt="Card Image"

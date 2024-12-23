@@ -31,7 +31,10 @@ export const REGISTER_ERRORS_INITIAL_STATE: RegisterCredentialsErrors = {
   },
 };
 
-export const ValidateLogin = (b: LoginCredentials): LoginCredentialsErrors => {
+export const ValidateLogin = (
+  b: LoginCredentials,
+  lang: "es" | "en" = "en"
+): LoginCredentialsErrors => {
   const { email, password } = b;
 
   const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -40,11 +43,17 @@ export const ValidateLogin = (b: LoginCredentials): LoginCredentialsErrors => {
     return {
       email: {
         error: true,
-        message: "Email must not be empty",
+        message:
+          lang === "en"
+            ? "Email must not be empty"
+            : "El campo de email no debe estar vacío",
       },
       password: {
         error: true,
-        message: "Password must not be empty",
+        message:
+          lang === "en"
+            ? "Input a valid email"
+            : "Por favor, introduce un email válido",
       },
     };
 
@@ -52,7 +61,10 @@ export const ValidateLogin = (b: LoginCredentials): LoginCredentialsErrors => {
     return {
       email: {
         error: true,
-        message: "Email must not be empty",
+        message:
+          lang === "en"
+            ? "Email must not be empty"
+            : "El campo de email no debe estar vacío",
       },
     };
 
@@ -60,7 +72,8 @@ export const ValidateLogin = (b: LoginCredentials): LoginCredentialsErrors => {
     return {
       email: {
         error: true,
-        message: "Input a valid email",
+        message:
+          lang === "en" ? "Input a valid email" : "Digita un email válido",
       },
     };
 
@@ -68,7 +81,10 @@ export const ValidateLogin = (b: LoginCredentials): LoginCredentialsErrors => {
     return {
       password: {
         error: true,
-        message: "Password must not be empty",
+        message:
+          lang === "en"
+            ? "You must provide a password"
+            : "Debes escribir una contraseña",
       },
     };
 
@@ -76,7 +92,10 @@ export const ValidateLogin = (b: LoginCredentials): LoginCredentialsErrors => {
     return {
       password: {
         error: true,
-        message: "Password must be at least 8 characters long",
+        message:
+          lang === "en"
+            ? "Password must be at least 8 characters long"
+            : "La contraseña debe tener como mínimo 8 caracteres de longitud",
       },
     };
 
@@ -84,7 +103,10 @@ export const ValidateLogin = (b: LoginCredentials): LoginCredentialsErrors => {
     return {
       password: {
         error: true,
-        message: "Password must be less than 32 characters long",
+        message:
+          lang === "en"
+            ? "Password must be less than 32 characters long"
+            : "La contraseña debe ser menor a 32 caracteres de longitud",
       },
     };
 
@@ -92,7 +114,8 @@ export const ValidateLogin = (b: LoginCredentials): LoginCredentialsErrors => {
 };
 
 export const ValidateRegister = (
-  body: RegisterCredentials
+  body: RegisterCredentials,
+  lang: "es" | "en" = "en"
 ): RegisterCredentialsErrors => {
   const { email, password, username } = body;
 
@@ -100,7 +123,10 @@ export const ValidateRegister = (
     return {
       username: {
         error: true,
-        message: "You must type a username",
+        message:
+          lang === "en"
+            ? "You must type a username"
+            : "Debes escribir un nombre de usuario",
       },
     };
 
@@ -108,7 +134,10 @@ export const ValidateRegister = (
     return {
       username: {
         error: true,
-        message: "You must type a username with at least 3 characters long",
+        message:
+          lang === "en"
+            ? "You must type a username with at least 3 characters long"
+            : "Debes ingresar un nombre de usuario con al menos 3 caracteres de longitud",
       },
     };
 
@@ -116,19 +145,25 @@ export const ValidateRegister = (
     return {
       username: {
         error: true,
-        message: "You must type a username with at least 3 characters long",
+        message:
+          lang === "en"
+            ? "You must type a username with at least 3 characters long"
+            : "Debes ingresar un nombre de usuario con al menos 3 caracteres de longitud",
       },
     };
 
-  if (username.length > 64)
+  if (username.length > 32)
     return {
       username: {
         error: true,
-        message: "Username length must be lower than 64 characters long",
+        message:
+          lang === "en"
+            ? "Username length must be lower or equal than 32 characters long"
+            : "El nombre de usuario debe tener una longitud menor o igual a 32 caracteres de longitud",
       },
     };
 
-  const isValidAuth = ValidateLogin({ email, password });
+  const isValidAuth = ValidateLogin({ email, password }, lang);
   if (isValidAuth) return isValidAuth;
 
   return {};

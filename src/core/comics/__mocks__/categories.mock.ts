@@ -1,0 +1,25 @@
+import { Category } from "../interfaces/categories.model";
+
+export const categories: Category[] = [
+  { id: 1, title: "Acción" },
+  { id: 2, title: "Aventura" },
+  { id: 3, title: "Comedia" },
+  { id: 4, title: "Drama" },
+  { id: 5, title: "Fantasía" },
+  { id: 6, title: "Romance" },
+  { id: 7, title: "Ciencia Ficción" },
+  { id: 8, title: "Horror" },
+  { id: 9, title: "Misterio" },
+  { id: 10, title: "Sobrenatural" },
+  { id: 11, title: "Deporte" },
+  { id: 12, title: "Vida Escolar" },
+  { id: 13, title: "Histórico" },
+  { id: 14, title: "Shoujo" },
+  { id: 15, title: "Shounen" },
+  { id: 16, title: "Seinen" },
+  { id: 17, title: "Josei" },
+  { id: 18, title: "Isekai" },
+  { id: 19, title: "Recuentos de la Vida" },
+  { id: 20, title: "Magia" },
+  { id: 21, title: "Género Bélico" },
+];

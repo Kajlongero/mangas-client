@@ -41,3 +41,18 @@ export const RefreshTokenValidTime = (
     path: "/",
   });
 };
+
+export const SetSessionId = (
+  cookies: ReadonlyRequestCookies,
+  data: string
+): void => {
+  const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+
+  cookies.set("session-id", data, {
+    httpOnly: true,
+    expires: expires,
+    sameSite: "lax",
+    domain: "localhost",
+    path: "/",
+  });
+};

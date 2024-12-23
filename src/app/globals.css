@@ -44,24 +44,74 @@ body {
   font-weight: 700;
 }
 
+.background-image-custom {
+  background-image: url("/login-bg-image.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .background-21-container {
-  @apply w-full py-4 px-4 bg-[#212121] rounded-lg md:px-8;
+  @apply w-full p-4 bg-[#212121] rounded-lg md:px-8;
 }
 
 input:has(-internal-autofill-selected) {
   background-color: transparent !important;
 }
 
+.custom-vertical-scrollbar::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
 .custom-horizontal-scrollbar::-webkit-scrollbar {
   height: 0.75rem;
 }
 
+.custom-vertical-scrollbar::-webkit-scrollbar-track,
 .custom-horizontal-scrollbar::-webkit-scrollbar-track {
   background-color: #292929;
   border-radius: 0.5rem;
 }
 
+.custom-vertical-scrollbar::-webkit-scrollbar-thumb,
 .custom-horizontal-scrollbar::-webkit-scrollbar-thumb {
   background-color: #3a3a3a;
   border-radius: 0.5rem;
+}
+
+.custom-select-container {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.custom-select-container::after {
+  content: "";
+  border-width: 0.3275rem;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #fff;
+  display: inline-block;
+  position: absolute;
+  right: 1rem;
+  top: 1.125rem;
+  border-radius: 0.125rem;
+}
+
+.custom-select-container .custom-select {
+  width: 100%;
+  min-height: 2.5rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  padding: 0.25rem 2rem 0.25rem 1rem;
+  border: 1px solid #373737;
+  appearance: none;
+  transition: border 0.15s;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+}
+
+.custom-select:hover {
+  border: 1px solid #fcd34d;
 }

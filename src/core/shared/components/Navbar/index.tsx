@@ -8,7 +8,7 @@ import { Typography } from "@mui/material";
 export const Navbar = async () => {
   return (
     <header
-      className={`mx-auto max-w-7xl w-full h-16 max-h-64 overflow-hidden py-4`}
+      className={`relative z-10 mx-auto max-w-7xl w-full h-16 max-h-64 overflow-hidden py-4`}
     >
       <nav className="md:flex md:justify-between" role="navigation">
         <MobileNavbar />

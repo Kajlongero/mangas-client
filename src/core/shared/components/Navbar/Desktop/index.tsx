@@ -10,8 +10,11 @@ import { HomeSVG } from "@/core/shared/components/SVG/HomeSVG";
 import { CollectionSVG } from "@/core/shared/components/SVG/CollectionSVG";
 
 import { isOnPathname } from "@/core/shared/lib/pathname";
+import { useTranslations } from "next-intl";
 
 export const DesktopNavbar = ({ children }: { children: React.ReactNode }) => {
+  const t = useTranslations("navbar");
+
   const user: boolean = false;
   const pathname = usePathname();
 
@@ -33,7 +36,7 @@ export const DesktopNavbar = ({ children }: { children: React.ReactNode }) => {
               <figure className={`mx-auto w-4 h-4`}>
                 <HomeSVG color={svgColor("/", "#fcd34d")} />
               </figure>
-              <p>Home</p>
+              <p>{t("home")}</p>
             </Link>
           </li>
           <li
@@ -48,14 +51,14 @@ export const DesktopNavbar = ({ children }: { children: React.ReactNode }) => {
               <figure className={`mx-auto w-4 h-4`}>
                 <CollectionSVG color={svgColor("/collections", "#fcd34d")} />
               </figure>
-              <p>Collections</p>
+              <p>{t("collections")}</p>
             </Link>
           </li>
         </ul>
       </section>
       <section className="max-md:hidden">
         <ul className="flex items-center gap-1">
-          <li className="py-2 px-2 transition-colors hover:bg-[#3a3a3a] rounded-full">
+          <li className="py-2 px-2 transition-colors hover:bg-[#2a2a2a] rounded-full">
             <Link
               href="/search"
               title="Search comics"
@@ -71,12 +74,12 @@ export const DesktopNavbar = ({ children }: { children: React.ReactNode }) => {
                 title="Account info"
                 className="w-full h-full flex items-center justify-center"
               >
-                <AccountCircleIcon className="text-white " />
+                <AccountCircleIcon className="text-white" />
               </Link>
             ) : (
               <Link href="/auth/login">
-                <p className="px-4 py-1 transition-colors hover:bg-[#3a3a3a] rounded-md">
-                  Iniciar sesion
+                <p className="px-4 py-1 transition-colors hover:bg-[#2a2a2a] rounded-md">
+                  {t("login")}
                 </p>
               </Link>
             )}

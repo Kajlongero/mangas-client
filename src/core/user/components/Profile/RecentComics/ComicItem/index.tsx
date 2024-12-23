@@ -6,7 +6,7 @@ import { useState } from "react";
 import { IconButton, Tooltip, Typography } from "@mui/material";
 
 import DeleteIcon from "@mui/icons-material/Delete";
-import { DialogComponent } from "@/core/components/Dialog";
+import { DialogComponent } from "@/core/shared/components/Dialog";
 
 type Props = {
   title: string;

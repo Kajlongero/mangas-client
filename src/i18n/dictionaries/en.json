@@ -1,0 +1,108 @@
+{
+  "officialLanguage": "en",
+  "navbar": {
+    "home": "Home",
+    "collections": "Collections",
+    "login": "Log in"
+  },
+  "landing": {
+    "hero": {
+      "title": "Recommended by the Staff",
+      "seeMoreButton": "View more"
+    },
+    "favorites": {
+      "title": "Favorites",
+      "subtitle": "Favorites added recently",
+      "seeMoreButton": "View more"
+    },
+    "populars": {
+      "title": "Populars",
+      "subtitle": "Populars comics by the readers",
+      "seeMoreButton": "View more"
+    },
+    "recentlyUpdated": {
+      "title": "Recently updated",
+      "subtitle": "Comics that we have updated recently",
+      "seeMoreButton": "View more"
+    }
+  },
+  "collections": {
+    "popularsToday": {
+      "title": "Populars from today",
+      "subtitle": "Comics most readed today",
+      "seeMoreButton": "View more"
+    },
+    "popularsWeek": {
+      "title": "Populars from this week",
+      "subtitle": "Comics most readed this week",
+      "seeMoreButton": "View more"
+    },
+    "recommended": {
+      "title": "Recommended by the Staff",
+      "seeMoreButton": "View more"
+    },
+    "filters": {
+      "modal": {
+        "title": "Filters",
+        "titleOne": "Status",
+        "titleTwo": "Categories"
+      },
+      "container": {
+        "title": "Showing {actual} of {total} comics",
+        "subtitle": "Showing the following categories: {categories}"
+      }
+    }
+  },
+  "search": {},
+  "account": {},
+  "comic": {
+    "type": "Comic Type",
+    "status": "Status",
+    "release": "Release date",
+    "genres": "Comic Genres",
+    "translators": "Actual translators",
+    "titles": "Alternative titles",
+    "favorite": "Add to Favorites",
+    "options": {
+      "sinopsis": "About",
+      "chapters": "Chapters",
+      "comments": "Comments"
+    }
+  },
+  "auth": {
+    "index": {
+      "formTitle": "Welcome to KajloMangas!",
+      "loginButton": "Log in",
+      "signupButton": "Sign up",
+      "bottomMessage": "This site was made with love by Kajlongero <3"
+    },
+    "login": {
+      "formTitle": "Log in with an existing account",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password",
+      "loginButton": "Log in",
+      "signupButton": "Sign up"
+    },
+    "signup": {
+      "formTitle": "Sign up in KajloMangas",
+      "usernamePlaceholder": "Username",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password",
+      "loginButton": "Log in",
+      "signupButton": "Sign up"
+    }
+  },
+  "comments": {
+    "card": {
+      "likeLabel": "Give a like",
+      "dislikeLabel": "Give a dislike",
+      "deleteButton": "DELETE"
+    },
+    "input": {
+      "label": "Comment input",
+      "placeholder": "Write a comment...",
+      "lock": "You need an account to post a comment",
+      "button": "Comment"
+    }
+  }
+}

@@ -14,12 +14,12 @@ type Props = {
 
 export const HorizontalContainer = (props: Props) => {
   return (
-    <section className="w-full my-8">
-      <div className="w-full pt-8">
+    <section className="w-full mt-16">
+      <div className="w-full">
         <h3 className="font-bold text-xl">{props.title}</h3>
         <p className="text-sm text-custom-gray">{props.subtitle}</p>
       </div>
-      <div className="custom-horizontal-scrollbar pb-4 flex gap-4 w-full mt-6 overflow-x-scroll">
+      <div className="custom-horizontal-scrollbar pb-4 flex gap-4 w-full mt-6 overflow-x-auto">
         {[1, 1, 1, 1, 1, 1, 1, 1].map((elem, idx) => {
           return <StandardCard key={`elem-${elem}-${idx}`} />;
         })}

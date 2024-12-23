@@ -1,11 +1,8 @@
-import {
-  RequestConfig,
-  StandardApiResponse,
-} from "@/common/interfaces/api.model";
+import { RequestConfig, StandardApiResponse } from "@/api/interfaces/api.model";
 import { fetchData } from "@/common/lib/axios.functions";
-import { CustomResponse } from "@/common/responses/custom.response";
+import { CustomResponse } from "@/api/responses/custom.response";
 import { User } from "@/core/user/interfaces/user.model";
-import { JwtTokens } from "@/security/interfaces/auth.model";
+import { AuthResponse } from "@/security/interfaces/auth.model";
 import {
   AccessTokenValidTime,
   RefreshTokenValidTime,
@@ -19,6 +16,7 @@ export async function POST() {
   if (!rt) {
     store.delete("access-token");
     store.delete("refresh-token");
+    store.delete("session-id");
 
     const obj: StandardApiResponse<null> = {
       data: null,
@@ -37,15 +35,15 @@ export async function POST() {
     route: "/api/v1/auth/refresh-token",
   };
 
-  const res = await fetchData<string, StandardApiResponse<JwtTokens>>(conf);
+  const res = await fetchData<string, StandardApiResponse<AuthResponse>>(conf);
 
   if (res.error) {
     const obj = { ...res, data: null };
     return CustomResponse(obj, res.statusCode, res.message ?? "");
   }
 
-  AccessTokenValidTime(store, res.data?.AccessToken as string);
-  RefreshTokenValidTime(store, res.data?.RefreshToken as string);
+  AccessTokenValidTime(store, res.data?.accessToken as string);
+  RefreshTokenValidTime(store, res.data?.refreshToken as string);
 
   const userConf: RequestConfig<null> = {
     body: null,
@@ -53,7 +51,7 @@ export async function POST() {
     route: "/api/v1/user/user-info",
     config: {
       headers: {
-        Authorization: `Bearer ${res.data?.AccessToken}`,
+        Authorization: `Bearer ${res.data?.accessToken}`,
       },
     },
   };

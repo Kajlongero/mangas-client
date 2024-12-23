@@ -4,7 +4,7 @@ import Image from "next/image";
 export const LargeCard = () => {
   return (
     <article className="h-full relative max-md:aspect-video">
-      <Link href="/read/comic/comic-comienza-con-una-montania">
+      <Link href="/library/comic/comic-comienza-con-una-montania">
         <figure className="w-full h-full min-w-full max-w-[32rem]">
           <Image
             alt="Standar Card Image"

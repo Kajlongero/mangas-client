@@ -1,48 +1,34 @@
 import { cookies } from "next/headers";
 
 import { fetchData } from "@/common/lib/axios.functions";
-import { ValidateLogin } from "@/security/lib/validate.auth.info";
-import { CustomResponse } from "@/common/responses/custom.response";
+import { CustomResponse } from "@/api/responses/custom.response";
 import {
   AccessTokenValidTime,
   RefreshTokenValidTime,
+  SetSessionId,
 } from "@/security/lib/auth.tokens.times";
 
-import {
-  LoginCredentials,
-  LoginCredentialsErrors,
-} from "@/security/interfaces/auth.model";
-import { JwtTokens } from "@/security/interfaces/auth.model";
-import {
+import { LoginCredentials } from "@/security/interfaces/auth.model";
+import type {
   RequestConfig,
   StandardApiResponse,
-} from "@/common/interfaces/api.model";
+} from "@/api/interfaces/api.model";
+
+import { AuthResponse } from "@/security/interfaces/auth.model";
 
 export async function POST(request: Request) {
   const body: LoginCredentials = await request.json();
 
-  const valid = ValidateLogin(body);
-  if (!valid) {
-    const format: StandardApiResponse<LoginCredentialsErrors> = {
-      error: true,
-      data: valid,
-      statusCode: 400,
-      message: "Bad Request",
-    };
-
-    return CustomResponse(format, 400, "Bad Request");
-  }
-
   const config: RequestConfig<LoginCredentials> = {
     config: {},
     method: "post",
-    route: "/api/v1/auth/login",
+    route: "/api/auth/login",
     body: body,
   };
 
   const res = await fetchData<
     LoginCredentials,
-    StandardApiResponse<null | JwtTokens>
+    StandardApiResponse<null | AuthResponse>
   >(config);
 
   if (res.error) {
@@ -52,8 +38,13 @@ export async function POST(request: Request) {
 
   const store = await cookies();
 
-  AccessTokenValidTime(store, res.data?.AccessToken as string);
-  RefreshTokenValidTime(store, res.data?.RefreshToken as string);
+  AccessTokenValidTime(store, res.data?.accessToken as string);
+  RefreshTokenValidTime(store, res.data?.refreshToken as string);
+  SetSessionId(store, res.data?.sessionId as string);
 
-  return CustomResponse({ message: "Logged in successfully" }, 200, "Success");
+  return CustomResponse(
+    { message: "Logged in successfully", privateKey: res.data?.privateKey },
+    200,
+    "Success"
+  );
 }

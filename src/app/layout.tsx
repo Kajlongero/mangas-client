@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import { Comic_Neue } from "next/font/google";
 
-import { Navbar } from "@/core/shared/components/Navbar";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
+
 import { ReactQueryProvider } from "@/config/context/ReactQuery";
 
 import "./globals.css";
@@ -20,14 +22,16 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
-      <body className={`${comic.className} mx-auto container px-4 sm:px-8`}>
-        <ReactQueryProvider>
-          <Navbar />
-          {children}
-        </ReactQueryProvider>
-      </body>
-    </html>
+    <ReactQueryProvider>
+      <NextIntlClientProvider messages={messages} locale={locale}>
+        <html lang={locale}>
+          <body className={`${comic.className}`}>{children}</body>
+        </html>
+      </NextIntlClientProvider>
+    </ReactQueryProvider>
   );
 }

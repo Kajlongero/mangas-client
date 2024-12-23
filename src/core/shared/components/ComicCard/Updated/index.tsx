@@ -1,42 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/**
- * 
- * & .card__infoContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    overflow: hidden;
-    flex: 1 1 0%;
-
-    & .card__infoContainer__title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
-
-    & .card__infoContainer__updateInfo {
-      display: flex;
-      flex: 1 1 0%;
-      flex-direction: column;
-      justify-content: end;
-      gap: 0.5rem;
-
-      & p {
-        background-color: #2a2a2a;
-        border-radius: 3rem;
-        padding: 0.5rem 1rem;
-      }
-    }
-  }
- */
-
 export const UpdatedCard = () => {
   return (
-    <Link href="/read/comic/comienza-con-una-montania/chapter/1">
+    <Link href="/library/comic/comic-comienza-con-una-montania">
       <article className="w-full flex max-sm:flex-col gap-4 background-21-container">
         <figure className="relative min-w-48 min-h-48 aspect-square">
           <Image

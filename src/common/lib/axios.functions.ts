@@ -1,7 +1,4 @@
-import {
-  RequestConfig,
-  StandardApiResponse,
-} from "@/common/interfaces/api.model";
+import { RequestConfig, StandardApiResponse } from "@/api/interfaces/api.model";
 
 import { ownServer, proxyAxios } from "@/config/lib/axios.instances";
 import { AxiosError, isAxiosError } from "axios";
@@ -28,8 +25,8 @@ export const fetchData = async <Entry, Resultant>(
       return {
         data: null,
         error: true,
-        message: "Internal Server Error",
-        statusCode: e.status,
+        message: e.message || "Internal Server Error",
+        statusCode: e.status || 500,
       } as Resultant;
     }
     const err = e as AxiosError;
@@ -62,8 +59,8 @@ export const fetchOwnServer = async <Entry, Resultant>(
       return {
         data: null,
         error: true,
-        message: "Internal Server Error",
-        statusCode: e.status,
+        message: e.message || "Internal Server Error",
+        statusCode: e.status || 500,
       } as Resultant;
     }
 

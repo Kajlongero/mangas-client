@@ -1,11 +1,12 @@
-import { AuthRoles } from "@/security/interfaces/auth.model";
-
 export type User = {
   id: string;
-  email: string;
+  profile: Profile;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string;
+};
+
+export type Profile = {
+  id: string;
   username: string;
-  description: string;
-  backgroundImage: string;
-  profileImage: string;
-  roles: AuthRoles[];
 };
