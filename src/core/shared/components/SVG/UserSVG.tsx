@@ -1,4 +1,4 @@
-import { CustomSVGProps } from "@/core/shared/interfaces/svgprops.model";
+import { CustomSVGProps } from "@/core/shared/interfaces/svgpropsModel";
 
 export const UserSVG = ({ color }: CustomSVGProps) => {
   return (

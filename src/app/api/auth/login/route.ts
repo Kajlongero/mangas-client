@@ -1,20 +1,20 @@
 import { cookies } from "next/headers";
 
-import { fetchData } from "@/common/lib/axios.functions";
+import { fetchData } from "@/api/lib/axiosFunctions";
 import { CustomResponse } from "@/api/responses/custom.response";
 import {
   AccessTokenValidTime,
   RefreshTokenValidTime,
   SetSessionId,
-} from "@/security/lib/auth.tokens.times";
+} from "@/security/lib/authTokenTimes";
 
-import { LoginCredentials } from "@/security/interfaces/auth.model";
+import { LoginCredentials } from "@/security/interfaces/authModel";
 import type {
   RequestConfig,
   StandardApiResponse,
-} from "@/api/interfaces/api.model";
+} from "@/api/interfaces/apiModel";
 
-import { AuthResponse } from "@/security/interfaces/auth.model";
+import { AuthResponse } from "@/security/interfaces/authModel";
 
 export async function POST(request: Request) {
   const body: LoginCredentials = await request.json();

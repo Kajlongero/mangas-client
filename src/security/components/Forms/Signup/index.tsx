@@ -11,16 +11,16 @@ import type { FormEventHandler } from "react";
 import { CircularProgress, Snackbar } from "@mui/material";
 
 import { useAuth } from "@/security/hooks/useAuth";
-import { ValidateRegister } from "@/security/lib/validate.auth.info";
-import { VerifyObjectLength } from "@/common/utils/objects.functions";
+import { ValidateRegister } from "@/security/lib/validateAuthInfo";
+import { VerifyObjectLength } from "@/common/utils/objectsFunctions";
 
-import { StandardApiResponse } from "@/api/interfaces/api.model";
+import { StandardApiResponse } from "@/api/interfaces/apiModel";
 import {
   RegisterCredentials,
   RegisterCredentialsErrors,
-} from "@/security/interfaces/auth.model";
-import { fetchPublicKey } from "@/security/lib/fetch.public.key";
-import { handleEncrypt } from "@/security/lib/handle.encrypt";
+} from "@/security/interfaces/authModel";
+import { fetchPublicKey } from "@/security/lib/fetchPublicKey";
+import { handleEncrypt } from "@/security/lib/handleEncrypt";
 
 export const SignupForm = () => {
   const router = useRouter();

@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 
 import { LoginForm } from "@/security/components/Forms/Login";
 
-import { authLinks } from "@/common/utils/auth.links";
+import { authLinks } from "@/common/utils/authLinks";
 
 export default function LoginPage() {
   const t = useTranslations();

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { SignupForm } from "@/security/components/Forms/Signup";
-import { authLinks } from "@/common/utils/auth.links";
+import { authLinks } from "@/common/utils/authLinks";
 import { useTranslations } from "next-intl";
 
 export default function SignupPage() {

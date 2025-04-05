@@ -1,6 +1,6 @@
 import { Skeleton, Typography } from "@mui/material";
 import { OptionItem } from "../OptionItem";
-import { infoOptions } from "@/common/lib/infoOptions";
+import { infoOptions } from "@/api/lib/infoOptions";
 import { Suspense, useId } from "react";
 
 export const ProfileMenuOptions = () => {

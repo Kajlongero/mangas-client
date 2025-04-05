@@ -15,7 +15,7 @@ export default async function RootLayout({
 }>) {
   return (
     <main className="max-w-7xl mx-auto container px-4 sm:px-8">
-      <Navbar />
+      <Navbar user={null} />
       {children}
     </main>
   );

@@ -1,17 +1,22 @@
-import { RequestConfig, StandardApiResponse } from "@/api/interfaces/api.model";
-import { fetchData } from "@/common/lib/axios.functions";
+import { cookies } from "next/headers";
+
+import { fetchData } from "@/api/lib/axiosFunctions";
 import { CustomResponse } from "@/api/responses/custom.response";
-import { User } from "@/core/user/interfaces/user.model";
-import { AuthResponse } from "@/security/interfaces/auth.model";
 import {
   AccessTokenValidTime,
   RefreshTokenValidTime,
-} from "@/security/lib/auth.tokens.times";
-import { cookies } from "next/headers";
+  SetSessionId,
+} from "@/security/lib/authTokenTimes";
+
+import { User } from "@/core/user/interfaces/userModel";
+import { AuthResponse } from "@/security/interfaces/authModel";
+import { RequestConfig, StandardApiResponse } from "@/api/interfaces/apiModel";
 
 export async function POST() {
   const store = await cookies();
   const rt = store.get("refresh-token")?.value;
+
+  console.log(rt);
 
   if (!rt) {
     store.delete("access-token");
@@ -32,23 +37,29 @@ export async function POST() {
     body: rt as string,
     config: {},
     method: "post",
-    route: "/api/v1/auth/refresh-token",
+    route: "/api/auth/refresh-token",
   };
 
-  const res = await fetchData<string, StandardApiResponse<AuthResponse>>(conf);
+  const res = await fetchData<
+    string,
+    StandardApiResponse<
+      Pick<AuthResponse, "accessToken" | "refreshToken" | "sessionId">
+    >
+  >(conf);
 
   if (res.error) {
     const obj = { ...res, data: null };
     return CustomResponse(obj, res.statusCode, res.message ?? "");
   }
 
-  AccessTokenValidTime(store, res.data?.accessToken as string);
   RefreshTokenValidTime(store, res.data?.refreshToken as string);
+  AccessTokenValidTime(store, res.data?.accessToken as string);
+  SetSessionId(store, res.data?.sessionId as string);
 
   const userConf: RequestConfig<null> = {
     body: null,
     method: "get",
-    route: "/api/v1/user/user-info",
+    route: "/api/user/user-info",
     config: {
       headers: {
         Authorization: `Bearer ${res.data?.accessToken}`,

@@ -1,4 +1,4 @@
-import { Category } from "../interfaces/categories.model";
+import { Category } from "../interfaces/categoriesModel";
 
 export const categories: Category[] = [
   { id: 1, title: "Acción" },

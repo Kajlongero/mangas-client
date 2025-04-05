@@ -1,15 +1,12 @@
 "use client";
 
 import { useMutation } from "@tanstack/react-query";
-import { fetchOwnServer } from "@/common/lib/axios.functions";
+import { fetchOwnServer } from "@/api/lib/axiosFunctions";
 
-import { RequestConfig, StandardApiResponse } from "@/api/interfaces/api.model";
-import {
-  LoginCredentials,
-  RegisterCredentials,
-} from "../interfaces/auth.model";
+import { RequestConfig, StandardApiResponse } from "@/api/interfaces/apiModel";
+import { LoginCredentials, RegisterCredentials } from "../interfaces/authModel";
 
-export const useAuth = (lang = "en") => {
+export const useAuth = (lang = "es") => {
   const loginMutation = useMutation({
     mutationFn: (
       data: LoginCredentials
@@ -38,6 +35,7 @@ export const useAuth = (lang = "en") => {
         body: data,
         config: {
           headers: {
+            "X-User-Preferred-Language": lang,
             "Content-Type": "application/json",
           },
         },

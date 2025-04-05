@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { useTranslations } from "next-intl";
 
-import { authLinks } from "@/common/utils/auth.links";
+import { authLinks } from "@/common/utils/authLinks";
 
 export default function AuthPage() {
   const t = useTranslations();

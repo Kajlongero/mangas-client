@@ -3,7 +3,7 @@ import {
   LoginCredentialsErrors,
   RegisterCredentials,
   RegisterCredentialsErrors,
-} from "../interfaces/auth.model";
+} from "../interfaces/authModel";
 
 export const LOGIN_ERRORS_INITIAL_STATE: LoginCredentialsErrors = {
   email: {

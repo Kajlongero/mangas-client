@@ -1,16 +1,16 @@
 import { cookies } from "next/headers";
 
-import { fetchData } from "@/common/lib/axios.functions";
+import { fetchData } from "@/api/lib/axiosFunctions";
 import { CustomResponse } from "@/api/responses/custom.response";
 import {
   AccessTokenValidTime,
   RefreshTokenValidTime,
   SetSessionId,
-} from "@/security/lib/auth.tokens.times";
+} from "@/security/lib/authTokenTimes";
 
-import { AuthResponse } from "@/security/interfaces/auth.model";
-import { RegisterCredentials } from "@/security/interfaces/auth.model";
-import { RequestConfig, StandardApiResponse } from "@/api/interfaces/api.model";
+import { AuthResponse } from "@/security/interfaces/authModel";
+import { RegisterCredentials } from "@/security/interfaces/authModel";
+import { RequestConfig, StandardApiResponse } from "@/api/interfaces/apiModel";
 
 export async function POST(req: Request) {
   const body: RegisterCredentials = await req.json();
@@ -25,6 +25,8 @@ export async function POST(req: Request) {
     RegisterCredentials,
     StandardApiResponse<null | AuthResponse>
   >(config);
+
+  console.log(res);
 
   if (res.error) {
     delete res.data;

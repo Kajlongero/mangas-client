@@ -1,5 +1,5 @@
-import { fetchData } from "@/api/lib/axios.functions";
-import { RequestConfig, StandardApiResponse } from "@/api/interfaces/api.model";
+import { fetchData } from "@/api/lib/axiosFunctions";
+import { RequestConfig, StandardApiResponse } from "@/api/interfaces/apiModel";
 
 export const fetchPublicKey = async () => {
   const config: RequestConfig<null> = {

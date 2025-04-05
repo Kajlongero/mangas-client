@@ -1,4 +1,4 @@
-import { NavLinks } from "@/core/shared/interfaces/navlinks.model";
+import { NavLinks } from "@/core/shared/interfaces/navlinksModel";
 
 export const navlinks: NavLinks[] = [
   {

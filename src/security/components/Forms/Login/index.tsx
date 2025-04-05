@@ -11,23 +11,23 @@ import { CircularProgress, Snackbar } from "@mui/material";
 
 import { useAuth } from "@/security/hooks/useAuth";
 
-import { ValidateLogin } from "@/security/lib/validate.auth.info";
-import { VerifyObjectLength } from "@/common/utils/objects.functions";
+import { ValidateLogin } from "@/security/lib/validateAuthInfo";
+import { VerifyObjectLength } from "@/common/utils/objectsFunctions";
 
 import {
   LoginCredentials,
   LoginCredentialsErrors,
-} from "@/security/interfaces/auth.model";
-import { StandardApiResponse } from "@/api/interfaces/api.model";
-import { handleEncrypt } from "@/security/lib/handle.encrypt";
-import { fetchPublicKey } from "@/security/lib/fetch.public.key";
+} from "@/security/interfaces/authModel";
+import { StandardApiResponse } from "@/api/interfaces/apiModel";
+import { handleEncrypt } from "@/security/lib/handleEncrypt";
+import { fetchPublicKey } from "@/security/lib/fetchPublicKey";
 
 export const LoginForm = () => {
   const ol = useTranslations();
   const t = useTranslations("auth.login");
   const router = useRouter();
 
-  const { loginMutation } = useAuth();
+  const { loginMutation } = useAuth(ol("officialLanguage"));
 
   const [errors, setErrors] = useState<LoginCredentialsErrors>({});
   const [publicKey, setPublicKey] = useState<string>("");

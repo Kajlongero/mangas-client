@@ -5,9 +5,9 @@ import { DynamicResponse } from "@/api/responses/dynamic.response";
 import {
   AddElementsIntoObject,
   FindPossibleInAnidatedAndExec,
-} from "@/common/utils/objects.functions";
+} from "@/common/utils/objectsFunctions";
 
-import { RequestConfig } from "@/api/interfaces/api.model";
+import { RequestConfig } from "@/api/interfaces/apiModel";
 
 export async function POST(req: Request) {
   const _body: RequestConfig<object> = await req.json();

@@ -1,6 +1,6 @@
-import { RequestConfig, StandardApiResponse } from "../interfaces/api.model";
+import { RequestConfig, StandardApiResponse } from "../interfaces/apiModel";
 
-import { ownServer, proxyAxios } from "@/config/lib/axios.instances";
+import { ownServer, proxyAxios } from "@/config/lib/axiosInstances";
 import { AxiosError, isAxiosError } from "axios";
 
 const ALLOWED_NON_GET_SIMILARS = new Set(["post", "patch"]);
@@ -21,22 +21,14 @@ export const fetchData = async <Entry, Resultant>(
 
     return response;
   } catch (e: unknown) {
-    if (isAxiosError(e)) {
-      return {
-        data: null,
-        error: true,
-        message: "Internal Server Error",
-        statusCode: e.status,
-      } as Resultant;
-    }
     const err = e as AxiosError;
-    const res = err.request?.data as StandardApiResponse<null>;
+    const res = err.response?.data as StandardApiResponse<null>;
 
     return {
       data: null,
-      error: res.error,
-      message: res.message,
-      statusCode: res.statusCode,
+      error: res.error ?? true,
+      message: res.message ?? err.message,
+      statusCode: res.statusCode ?? err.status,
     } as Resultant;
   }
 };
@@ -55,23 +47,14 @@ export const fetchOwnServer = async <Entry, Resultant>(
 
     return response;
   } catch (e: unknown) {
-    if (isAxiosError(e)) {
-      return {
-        data: null,
-        error: true,
-        message: "Internal Server Error",
-        statusCode: e.status,
-      } as Resultant;
-    }
-
     const err = e as AxiosError;
-    const res = err.request?.data as StandardApiResponse<null>;
+    const res = err.response?.data as StandardApiResponse<null>;
 
     return {
       data: null,
-      error: res.error,
-      message: res.message,
-      statusCode: res.statusCode,
+      error: res?.error ?? true,
+      message: res?.message ?? err.message,
+      statusCode: res?.statusCode ?? err.status,
     } as Resultant;
   }
 };

@@ -11,11 +11,16 @@ import { CollectionSVG } from "@/core/shared/components/SVG/CollectionSVG";
 
 import { isOnPathname } from "@/core/shared/lib/pathname";
 import { useTranslations } from "next-intl";
+import { User } from "@/core/user/interfaces/userModel";
 
-export const DesktopNavbar = ({ children }: { children: React.ReactNode }) => {
+type Props = {
+  user: User | null;
+  children: React.ReactNode;
+};
+
+export const DesktopNavbar = ({ user, children }: Props) => {
   const t = useTranslations("navbar");
 
-  const user: boolean = false;
   const pathname = usePathname();
 
   const isOnDesktop = (route: string) =>

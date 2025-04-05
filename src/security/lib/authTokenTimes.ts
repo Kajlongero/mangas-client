@@ -46,7 +46,7 @@ export const SetSessionId = (
   cookies: ReadonlyRequestCookies,
   data: string
 ): void => {
-  const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+  const expires = new Date(Date.now() + 24 * 60 * 60 * 180 * 1000);
 
   cookies.set("session-id", data, {
     httpOnly: true,
